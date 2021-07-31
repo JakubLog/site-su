@@ -6,8 +6,7 @@
     "plugin:prettier/recommended",
     "prettier",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint"
+    "plugin:@typescript-eslint/recommended"
   ],
   "plugins": ["prettier"],
   "rules": {

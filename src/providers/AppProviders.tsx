@@ -2,6 +2,7 @@ import { GlobalStyles } from 'assets/css/GlobalStyles';
 import { light } from 'assets/css/theme';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 interface props {
   children: React.ReactNode;
@@ -9,10 +10,12 @@ interface props {
 
 const AppProviders = ({ children }: props): JSX.Element => {
   return (
-    <ThemeProvider theme={light}>
-      <GlobalStyles />
-      {children}
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={light}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
+    </Router>
   );
 };
 
