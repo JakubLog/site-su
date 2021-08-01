@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: { color: { primary: strin
         margin: 0;
         padding: 0;
         color: ${({ theme }) => theme.color.primary};
+        overflow-x: hidden;
         background-color: ${({ theme }) => theme.color.secondary};
     }
     *, *::after, *::before {
