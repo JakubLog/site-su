@@ -30,10 +30,10 @@ export const light = {
 
 export const dark = {
   color: {
-    primary: '',
-    secondary: '',
-    primaryDarken: '',
-    secondaryDarken: ''
+    primary: 'hsl(80, 60%, 70%)',
+    secondary: 'hsl(210, 30%, 20%)',
+    primaryDarken: 'hsl(80, 60%, 40%)',
+    secondaryDarken: 'hsl(210, 30%, 10%)'
   },
   ...base
 };

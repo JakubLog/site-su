@@ -1,7 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Navbar, NavBody, NavLogo, NavItems, NavItem, NavTheme, ThemeInput, ThemeSlider } from './Navigation.styles';
+import { toggleTheme } from 'store/store';
 
 const Navigation = (): JSX.Element => {
+  const dispatch = useDispatch();
   return (
     <Navbar>
       <NavBody>
@@ -14,7 +17,7 @@ const Navigation = (): JSX.Element => {
           <NavItem to="/signin">Sign in</NavItem>
         </NavItems>
         <NavTheme>
-          <ThemeInput type="checkbox" />
+          <ThemeInput onClick={() => dispatch(toggleTheme({}))} type="checkbox" />
           <ThemeSlider />
         </NavTheme>
       </NavBody>
