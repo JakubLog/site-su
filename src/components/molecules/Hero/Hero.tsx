@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
       <HeroWrapper>
-        <HeroTitle>Samorząd uczniowski</HeroTitle>
+        <HeroTitle>Samorząd Uczniowski</HeroTitle>
         <HeroSubtitle>Od uczniów dla uczniów...</HeroSubtitle>
         <Button variant="contained">Najnowsze wydarzenia</Button>
       </HeroWrapper>
