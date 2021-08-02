@@ -1,11 +1,13 @@
-import MainTemplate from 'components/templates/MainTemplate';
-import AppProviders from 'providers/AppProviders';
 import React from 'react';
+import MainTemplate from 'components/templates/MainTemplate';
+import { useError } from 'hooks/useError';
 import { Switch, Route } from 'react-router-dom';
+import Error from 'components/molecules/Error/Error';
 
 export default function App(): JSX.Element {
+  const { error } = useError();
   return (
-    <AppProviders>
+    <>
       <MainTemplate>
         <Switch>
           <Route exact path="/">
@@ -13,6 +15,7 @@ export default function App(): JSX.Element {
           </Route>
         </Switch>
       </MainTemplate>
-    </AppProviders>
+      {error && <Error message={error} />}
+    </>
   );
 }

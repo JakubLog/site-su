@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import { light, dark } from 'assets/css/theme';
+import ErrorProvider from 'hooks/useError';
 
 interface props {
   children: React.ReactNode;
@@ -12,19 +13,16 @@ interface props {
 
 const AppProviders = ({ children }: props): JSX.Element => {
   const themeName = useSelector<RootState>((state) => state.theme);
-
-  const getTheme = () => {
-    console.log(themeName);
-    if (themeName === 'light') return light;
-    if (themeName === 'dark') return dark;
-  };
+  const getTheme = () => (themeName === 'light' ? light : dark);
 
   return (
     <Router>
-      <ThemeProvider theme={getTheme}>
-        <GlobalStyles />
-        {children}
-      </ThemeProvider>
+      <ErrorProvider>
+        <ThemeProvider theme={getTheme}>
+          <GlobalStyles />
+          {children}
+        </ThemeProvider>
+      </ErrorProvider>
     </Router>
   );
 };
