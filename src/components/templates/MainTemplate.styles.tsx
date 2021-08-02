@@ -6,12 +6,12 @@ export const Wrapper = styled.div`
 `;
 export const Site = styled.div`
   padding-top: 80px;
-  padding-inline: 20px;
+  padding-inline: 30px;
   padding-bottom: 40px;
   @media (min-width: 1350px) {
     padding: 0;
     padding-block: 30px;
-    padding-inline: 5%;
+    padding-inline: 10%;
   }
 `;
 export const Footer = styled.div`

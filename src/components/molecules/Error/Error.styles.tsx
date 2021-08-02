@@ -27,6 +27,11 @@ export const ErrorWrapper = styled.div`
   * {
     margin: 0;
   }
+  @media (max-width: 1350px) {
+    max-width: 300px;
+    margin: 0 15px;
+    min-height: 150px;
+  }
 `;
 export const ErrorTitle = styled.h1`
   --redColor: hsl(0, 60%, 40%);
