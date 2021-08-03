@@ -2,7 +2,7 @@ import React from 'react';
 import { HeroWrapper, HeroTitle, HeroSubtitle } from './Hero.styles';
 import { Button } from 'components/atoms/Button/Button';
 
-const Hero = () => {
+const Hero = (): JSX.Element => {
   return (
     <>
       <HeroWrapper>

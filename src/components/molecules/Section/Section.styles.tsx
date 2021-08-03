@@ -23,6 +23,10 @@ export const Title = styled.h2`
   padding-bottom: 10px;
   border-bottom: 5px solid ${({ theme }) => theme.color.primary};
   margin: 0 auto;
+  @media (min-width: 1350px) {
+    padding-inline: 50px;
+    font-size: 40px;
+  }
 `;
 export const Body = styled.div`
   margin-top: 30px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroWrapper = styled.div`
-  min-height: calc(100vh - 175px);
+  min-height: calc(100vh - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@ export const HeroTitle = styled.h1`
   font-size: 35px;
   margin-bottom: 3px;
   @media (min-width: 1350px) {
-    font-size: 50px;
+    font-size: 60px;
     margin-bottom: 5px;
   }
 `;
@@ -29,7 +29,7 @@ export const HeroSubtitle = styled.h3`
   letter-spacing: 1px;
   margin-bottom: 25px;
   @media (min-width: 1350px) {
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom: 30px;
   }
 `;
