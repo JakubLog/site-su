@@ -27,10 +27,17 @@ const Main = (): JSX.Element => {
     }
   }`;
 
-  const FORMS_QUERY = ``;
+  const FORMS_QUERY = `{
+    forms {
+      title
+      link
+    }
+  }`;
 
   const [posts, setPosts] = useState([]);
+  const [forms, setForms] = useState([]);
   const { loading: postsLoading, error: postsError, data: postsData } = useQuery(POSTS_QUERY);
+  const { loading: formsLoading, error: formsError, data: formsData } = useQuery(FORMS_QUERY);
   const { dispatchError } = useError();
 
   useEffect(() => {
@@ -44,6 +51,17 @@ const Main = (): JSX.Element => {
     }
   }, [postsLoading]);
 
+  useEffect(() => {
+    if (!formsLoading && !formsError) {
+      const { forms } = formsData;
+      const reversedFormsArray = forms.reverse();
+      const filteredForms = reversedFormsArray.slice(0, 5);
+      setForms(filteredForms);
+    } else if (formsError) {
+      dispatchError('Something went wrong with the forms. Contact with support!');
+    }
+  }, [formsLoading]);
+
   return (
     <>
       <Hero />
@@ -51,7 +69,7 @@ const Main = (): JSX.Element => {
         <Gallery array={posts} />
       </Section>
       <Section label="forms" title="Aktywne ankiety">
-        {/* <Forms array={forms} /> */}
+        <Forms array={forms} />
       </Section>
     </>
   );
