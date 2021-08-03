@@ -6,10 +6,14 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import { light, dark } from 'assets/css/theme';
 import ErrorProvider from 'hooks/useError';
-
+import { GraphQLClient, ClientContext } from 'graphql-hooks';
 interface props {
   children: React.ReactNode;
 }
+
+const client = new GraphQLClient({
+  url: 'https://api-eu-central-1.graphcms.com/v2/ckrvpslmn05ne01z8156yd2th/master'
+});
 
 const AppProviders = ({ children }: props): JSX.Element => {
   const themeName = useSelector<RootState>((state) => state.theme);
@@ -18,10 +22,12 @@ const AppProviders = ({ children }: props): JSX.Element => {
   return (
     <Router>
       <ErrorProvider>
-        <ThemeProvider theme={getTheme}>
-          <GlobalStyles />
-          {children}
-        </ThemeProvider>
+        <ClientContext.Provider value={client}>
+          <ThemeProvider theme={getTheme}>
+            <GlobalStyles />
+            {children}
+          </ThemeProvider>
+        </ClientContext.Provider>
       </ErrorProvider>
     </Router>
   );

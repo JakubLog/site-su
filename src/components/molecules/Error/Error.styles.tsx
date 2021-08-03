@@ -13,7 +13,7 @@ export const ErrorWrapper = styled.div`
   width: 100%;
   max-width: 450px;
   min-height: 200px;
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   border-radius: 25px;
   color: var(--redColor);
@@ -24,6 +24,7 @@ export const ErrorWrapper = styled.div`
   transform: translateX(-500%);
   animation: ${sliceIn} 2s forwards, ${sliceOut} 1.5s 6s forwards;
   padding: 15px 20px;
+  z-index: 100;
   * {
     margin: 0;
   }

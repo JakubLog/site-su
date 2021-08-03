@@ -4,6 +4,8 @@ import Section from 'components/molecules/Section/Section';
 import Gallery from 'components/organisms/Gallery/Gallery';
 import styled from 'styled-components';
 import Forms from 'components/organisms/Forms/Forms';
+import { useQuery } from 'graphql-hooks';
+import { useError } from 'hooks/useError';
 
 export const FormsWrapper = styled.div`
   padding: 20px 0;
@@ -14,65 +16,42 @@ export const FormsWrapper = styled.div`
 `;
 
 const Main = (): JSX.Element => {
-  const array = [
-    {
-      id: '2213jifdis',
-      title: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet',
-      src: 'https://picsum.photos/500'
-    },
-    {
-      id: 'hfgfhfg3jifdis',
-      title: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet',
-      src: 'https://picsum.photos/500'
-    },
-    {
-      id: '22hfhfgfifdis',
-      title: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet',
-      src: 'https://picsum.photos/500'
-    },
-    {
-      id: '2ghifdis',
-      title: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet',
-      src: 'https://picsum.photos/500'
-    },
-    {
-      id: '2213jifgd',
-      title: 'Lorem ipsum',
-      description: 'Lorem ipsum dolor sit amet',
-      src: 'https://picsum.photos/500'
+  const POSTS_QUERY = `{
+    posts {
+      id
+      title
+      description
+      src {
+        url
+      }
     }
-  ];
+  }`;
 
-  const forms = [
-    {
-      id: '@32234',
-      title: 'Title of form a long title lol...',
-      link: 'https://tally.so/r/npOqqw'
-    },
-    {
-      id: '@32dfs234',
-      title: 'Title of form a long title xd...',
-      link: 'https://tally.so/r/npOqqw'
-    },
-    {
-      id: '@3223fdsfds4',
-      title: 'Title of form a long title asdsadsa...',
-      link: 'https://tally.so/r/npOqqw'
+  const FORMS_QUERY = ``;
+
+  const [posts, setPosts] = useState([]);
+  const { loading: postsLoading, error: postsError, data: postsData } = useQuery(POSTS_QUERY);
+  const { dispatchError } = useError();
+
+  useEffect(() => {
+    if (!postsLoading && !postsError) {
+      const { posts } = postsData;
+      const reversedPostsArray = posts.reverse();
+      const filteredPosts = reversedPostsArray.slice(0, 5);
+      setPosts(filteredPosts);
+    } else if (postsError) {
+      dispatchError('Something went wrong with the posts. Contact with support!');
     }
-  ];
+  }, [postsLoading]);
 
   return (
     <>
       <Hero />
       <Section label="news" title="Z życia szkoły">
-        <Gallery array={array} />
+        <Gallery array={posts} />
       </Section>
       <Section label="forms" title="Aktywne ankiety">
-        <Forms array={forms} />
+        {/* <Forms array={forms} /> */}
       </Section>
     </>
   );

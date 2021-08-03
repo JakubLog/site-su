@@ -6,7 +6,7 @@ interface GalleryItemInterface {
   id: string;
   title: string;
   description: string;
-  src: string;
+  src: { url: string };
 }
 
 interface props {
@@ -16,8 +16,8 @@ interface props {
 const Gallery = ({ array }: props): JSX.Element => {
   return (
     <GalleryWrapper>
-      {array.map(({ id, title, description, src }) => (
-        <GalleryItem path={`post/${id}`} key={id} title={title} description={description} src={src} />
+      {array.map(({ id, title, description, src: { url } }) => (
+        <GalleryItem path={`post/${id}`} key={id} title={title} description={description} src={url} />
       ))}
     </GalleryWrapper>
   );

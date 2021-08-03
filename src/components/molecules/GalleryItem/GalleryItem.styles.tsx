@@ -110,6 +110,11 @@ export const GalleryItemWrapper = styled(Link)`
       }
       ${Description} {
         letter-spacing: 1.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
       }
       &:hover {
         img {
