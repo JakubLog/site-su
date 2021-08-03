@@ -15,9 +15,11 @@ interface props {
 const Forms = ({ array }: props): JSX.Element => {
   return (
     <FormsWrapper>
-      {array.map(({ id, title, link }) => (
-        <FormItem key={id} title={title} src={link} />
-      ))}
+      {array.length <= 0 ? (
+        <p>Aktualnie brak aktywnych ankiet...</p>
+      ) : (
+        array.map(({ id, title, link }) => <FormItem key={id} title={title} src={link} />)
+      )}
     </FormsWrapper>
   );
 };

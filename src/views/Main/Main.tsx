@@ -49,6 +49,7 @@ const Main = (): JSX.Element => {
     } else if (postsError) {
       dispatchError('Something went wrong with the posts. Contact with support!');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postsLoading]);
 
   useEffect(() => {
@@ -60,6 +61,7 @@ const Main = (): JSX.Element => {
     } else if (formsError) {
       dispatchError('Something went wrong with the forms. Contact with support!');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formsLoading]);
 
   return (
