@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle<{ theme: { color: { primary: string; secondary: string } } }>`
     html {
         font-family: Arial, Helvetica, sans-serif;
+        scroll-behavior: smooth;
     }
     body {
         margin: 0;

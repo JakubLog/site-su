@@ -8,7 +8,9 @@ const Hero = (): JSX.Element => {
       <HeroWrapper>
         <HeroTitle>Samorząd Uczniowski</HeroTitle>
         <HeroSubtitle>Od uczniów dla uczniów...</HeroSubtitle>
-        <Button variant="contained">Najnowsze wydarzenia</Button>
+        <a href="#news" style={{ textDecoration: 'none' }}>
+          <Button variant="contained">Najnowsze wydarzenia</Button>
+        </a>
       </HeroWrapper>
     </>
   );

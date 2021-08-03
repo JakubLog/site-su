@@ -40,10 +40,12 @@ const Main = (): JSX.Element => {
   return (
     <>
       <Hero />
-      <Section title="Z życia szkoły">
+      <Section label="news" title="Z życia szkoły">
         <Gallery array={array} />
       </Section>
-      <Section title="Aktywne ankiety">Hello from section body</Section>
+      <Section label="forms" title="Aktywne ankiety">
+        Hello from section body
+      </Section>
     </>
   );
 };
