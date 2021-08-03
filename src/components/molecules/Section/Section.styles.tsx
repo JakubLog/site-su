@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-bottom: 30px;
+  &:not(:last-child) {
+    margin-bottom: 70px;
+  }
   position: relative;
   @media (min-width: 1350px) {
     &::after {
@@ -13,6 +15,9 @@ export const Wrapper = styled.div`
       width: 80%;
       height: 5px;
       background-color: ${({ theme }) => theme.color.primary};
+    }
+    &:not(:last-child) {
+      margin-bottom: 150px;
     }
   }
 `;

@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from 'components/molecules/Hero/Hero';
 import Section from 'components/molecules/Section/Section';
 import Gallery from 'components/organisms/Gallery/Gallery';
+import styled from 'styled-components';
+import Forms from 'components/organisms/Forms/Forms';
+
+export const FormsWrapper = styled.div`
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 const Main = (): JSX.Element => {
   const array = [
@@ -37,6 +47,24 @@ const Main = (): JSX.Element => {
     }
   ];
 
+  const forms = [
+    {
+      id: '@32234',
+      title: 'Title of form a long title lol...',
+      link: 'https://tally.so/r/npOqqw'
+    },
+    {
+      id: '@32dfs234',
+      title: 'Title of form a long title xd...',
+      link: 'https://tally.so/r/npOqqw'
+    },
+    {
+      id: '@3223fdsfds4',
+      title: 'Title of form a long title asdsadsa...',
+      link: 'https://tally.so/r/npOqqw'
+    }
+  ];
+
   return (
     <>
       <Hero />
@@ -44,7 +72,7 @@ const Main = (): JSX.Element => {
         <Gallery array={array} />
       </Section>
       <Section label="forms" title="Aktywne ankiety">
-        Hello from section body
+        <Forms array={forms} />
       </Section>
     </>
   );
