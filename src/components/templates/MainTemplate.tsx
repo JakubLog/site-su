@@ -1,6 +1,7 @@
 import React from 'react';
-import { Wrapper, Site, Footer } from './MainTemplate.styles';
+import { Wrapper, Site } from './MainTemplate.styles';
 import Navigation from 'components/molecules/Navigation/Navigation';
+import Footer from 'components/molecules/Footer/Footer';
 
 interface props {
   children: React.ReactNode;
@@ -11,10 +12,7 @@ const MainTemplate = ({ children }: props): JSX.Element => {
     <Wrapper>
       <Navigation />
       <Site>{children}</Site>
-      <Footer>
-        <span id="first">Szkoła Podstawowa Nr. 3 w Środzie Śląskiej</span>
-        <span id="second">2021 &copy; All rights reserved</span>
-      </Footer>
+      <Footer />
     </Wrapper>
   );
 };
