@@ -23,6 +23,7 @@ export const NavBody = styled.div`
   }
 `;
 export const NavLogo = styled.h1`
+  visibility: hidden;
   font-size: 22px;
   font-weight: 700;
   @media (min-width: 1350px) {
@@ -87,6 +88,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
   }
 `;
 export const NavTheme = styled.label`
+  visibility: hidden;
   width: 70px;
   height: 30px;
   position: absolute;
