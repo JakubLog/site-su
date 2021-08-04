@@ -19,6 +19,11 @@ export const Wrapper = styled.div`
     &:not(:last-child) {
       margin-bottom: 150px;
     }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
   }
 `;
 export const Title = styled.h2`

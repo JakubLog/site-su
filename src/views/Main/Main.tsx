@@ -5,6 +5,8 @@ import Gallery from 'components/organisms/Gallery/Gallery';
 import Forms from 'components/organisms/Forms/Forms';
 import { useQuery } from 'graphql-hooks';
 import { useError } from 'hooks/useError';
+import Loading from 'components/molecules/Loading/Loading';
+import About from 'components/molecules/About/About';
 
 const POSTS_QUERY = `{
   posts {
@@ -59,10 +61,13 @@ const Main = (): JSX.Element => {
     <>
       <Hero />
       <Section label="news" title="Z życia szkoły">
-        <Gallery array={posts} />
+        {postsLoading ? <Loading /> : <Gallery array={posts} />}
       </Section>
       <Section label="forms" title="Aktywne ankiety">
-        <Forms array={forms} />
+        {formsLoading ? <Loading /> : <Forms array={forms} />}
+      </Section>
+      <Section label="about" title="O nas">
+        <About />
       </Section>
     </>
   );
