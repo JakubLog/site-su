@@ -2,38 +2,29 @@ import React, { useEffect, useState } from 'react';
 import Hero from 'components/molecules/Hero/Hero';
 import Section from 'components/molecules/Section/Section';
 import Gallery from 'components/organisms/Gallery/Gallery';
-import styled from 'styled-components';
 import Forms from 'components/organisms/Forms/Forms';
 import { useQuery } from 'graphql-hooks';
 import { useError } from 'hooks/useError';
 
-export const FormsWrapper = styled.div`
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
+const POSTS_QUERY = `{
+  posts {
+    id
+    title
+    description
+    src {
+      url
+    }
+  }
+}`;
+
+const FORMS_QUERY = `{
+  forms {
+    title
+    link
+  }
+}`;
 
 const Main = (): JSX.Element => {
-  const POSTS_QUERY = `{
-    posts {
-      id
-      title
-      description
-      src {
-        url
-      }
-    }
-  }`;
-
-  const FORMS_QUERY = `{
-    forms {
-      title
-      link
-    }
-  }`;
-
   const [posts, setPosts] = useState([]);
   const [forms, setForms] = useState([]);
   const { loading: postsLoading, error: postsError, data: postsData } = useQuery(POSTS_QUERY);
