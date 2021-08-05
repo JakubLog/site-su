@@ -2,7 +2,7 @@
 
 ## About ✍️
 
-This website
+When I was chairman of the school, one of my postulates was to create Website for students. And that's it! 😃
 
 Mobile version: yes 🎈
 
