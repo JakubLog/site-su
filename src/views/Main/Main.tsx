@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Hero from 'components/molecules/Hero/Hero';
 import Section from 'components/molecules/Section/Section';
 import Gallery from 'components/organisms/Gallery/Gallery';
@@ -32,6 +32,8 @@ const Main = (): JSX.Element => {
   const { loading: postsLoading, error: postsError, data: postsData } = useQuery(POSTS_QUERY);
   const { loading: formsLoading, error: formsError, data: formsData } = useQuery(FORMS_QUERY);
   const { dispatchError } = useError();
+
+  const titleRef = useRef();
 
   useEffect(() => {
     if (!postsLoading && !postsError) {

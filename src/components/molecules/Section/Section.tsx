@@ -7,7 +7,7 @@ interface props {
   children: React.ReactNode;
 }
 
-const Section = ({ title = 'Basic title', label, children }: props): JSX.Element => {
+const Section = ({ title = 'Section title', label, children }: props): JSX.Element => {
   return (
     <Wrapper aria-label={`Section named ${label}`} id={label}>
       <Title>{title}</Title>

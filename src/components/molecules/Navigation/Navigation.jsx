@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navbar, NavBody, NavLogo, NavItems, NavItem, NavTheme, ThemeInput, ThemeSlider } from './Navigation.styles';
 import { toggleTheme } from 'store/store';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { createRef } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -20,7 +20,7 @@ const Navigation = () => {
     gsap.set(logo.current, { visibility: 'visible' });
     gsap.set(items, { visibility: 'visible' });
     gsap.set(switchInput.current, { visibility: 'visible' });
-    if (window.innerWith > 1350) {
+    if (window.innerWidth > 1350) {
       const tl = gsap.timeline({ delay: 0.5 });
 
       tl.addLabel('Navbar')

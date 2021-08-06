@@ -15,6 +15,7 @@ export const HeroWrapper = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
+  visibility: hidden;
   font-size: 35px;
   margin-bottom: 3px;
   @media (min-width: 1350px) {
@@ -24,6 +25,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroSubtitle = styled.h3`
+  visibility: hidden;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1px;
