@@ -8,6 +8,7 @@ import Members from './Members/Members';
 import Modal from 'components/molecules/Modal/Modal';
 import Sigin from './Signin/Signin';
 import { useAuth } from 'hooks/useAuth';
+import Post from './Post/Post';
 
 export default function App(): JSX.Element {
   const { error } = useError();
@@ -21,6 +22,9 @@ export default function App(): JSX.Element {
           </Route>
           <Route path="/members">
             <Members />
+          </Route>
+          <Route path="/post/:id">
+            <Post />
           </Route>
           {!currentUser ? (
             <Route path="/signin">
