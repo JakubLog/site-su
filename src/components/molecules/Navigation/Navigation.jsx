@@ -41,7 +41,7 @@ const Navigation = () => {
             </NavItem>
           </div>
           <div style={{ visibility: 'hidden' }} ref={navItems.current[1]}>
-            <NavItem to="/posts">Posts</NavItem>
+            <NavItem to="/members">Members</NavItem>
           </div>
           <div style={{ visibility: 'hidden' }} ref={navItems.current[2]}>
             <NavItem to="/signin">Sign in</NavItem>

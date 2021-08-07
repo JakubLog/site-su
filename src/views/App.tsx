@@ -4,6 +4,8 @@ import { useError } from 'hooks/useError';
 import { Switch, Route } from 'react-router-dom';
 import Error from 'components/molecules/Error/Error';
 import Main from './Main/Main';
+import Members from './Members/Members';
+import Modal from 'components/molecules/Modal/Modal';
 
 export default function App(): JSX.Element {
   const { error } = useError();
@@ -14,8 +16,12 @@ export default function App(): JSX.Element {
           <Route exact path="/">
             <Main />
           </Route>
+          <Route path="/members">
+            <Members />
+          </Route>
         </Switch>
       </MainTemplate>
+      <Modal />
       {error && <Error message={error} />}
     </>
   );

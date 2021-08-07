@@ -7,6 +7,8 @@ import { RootState } from 'store/store';
 import { light, dark } from 'assets/css/theme';
 import ErrorProvider from 'hooks/useError';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
+import MembersProvider from 'hooks/useMembers';
+import ModalProvider from 'hooks/useModal';
 interface props {
   children: React.ReactNode;
 }
@@ -22,12 +24,16 @@ const AppProviders = ({ children }: props): JSX.Element => {
   return (
     <Router>
       <ErrorProvider>
-        <ClientContext.Provider value={client}>
-          <ThemeProvider theme={getTheme}>
-            <GlobalStyles />
-            {children}
-          </ThemeProvider>
-        </ClientContext.Provider>
+        <MembersProvider>
+          <ModalProvider>
+            <ClientContext.Provider value={client}>
+              <ThemeProvider theme={getTheme}>
+                <GlobalStyles />
+                {children}
+              </ThemeProvider>
+            </ClientContext.Provider>
+          </ModalProvider>
+        </MembersProvider>
       </ErrorProvider>
     </Router>
   );
