@@ -9,6 +9,7 @@ import ErrorProvider from 'hooks/useError';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import MembersProvider from 'hooks/useMembers';
 import ModalProvider from 'hooks/useModal';
+import AuthProvider from 'hooks/useAuth';
 interface props {
   children: React.ReactNode;
 }
@@ -25,14 +26,16 @@ const AppProviders = ({ children }: props): JSX.Element => {
     <Router>
       <ErrorProvider>
         <MembersProvider>
-          <ModalProvider>
-            <ClientContext.Provider value={client}>
-              <ThemeProvider theme={getTheme}>
-                <GlobalStyles />
-                {children}
-              </ThemeProvider>
-            </ClientContext.Provider>
-          </ModalProvider>
+          <AuthProvider>
+            <ModalProvider>
+              <ClientContext.Provider value={client}>
+                <ThemeProvider theme={getTheme}>
+                  <GlobalStyles />
+                  {children}
+                </ThemeProvider>
+              </ClientContext.Provider>
+            </ModalProvider>
+          </AuthProvider>
         </MembersProvider>
       </ErrorProvider>
     </Router>
