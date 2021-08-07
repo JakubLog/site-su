@@ -8,7 +8,7 @@ export interface member {
   name: string;
   permissions: string;
   className: string;
-  description?: string;
+  description: string;
   group: string;
 }
 
@@ -38,8 +38,8 @@ const Members = (): JSX.Element => {
             {isLoading ? (
               <Loading />
             ) : (
-              groupA.map(({ name, permissions, className }: member) => (
-                <Member key={name} name={name} description="Lorem ipsum solo" permissions={permissions} classNameProp={className} />
+              groupA.map(({ name, permissions, className, description }: member) => (
+                <Member key={name} name={name} description={description} permissions={permissions} classNameProp={className} />
               ))
             )}
           </GroupBody>
@@ -50,8 +50,8 @@ const Members = (): JSX.Element => {
             {isLoading ? (
               <Loading />
             ) : (
-              groupB.map(({ name, permissions, className }: member) => (
-                <Member key={name} name={name} description="Lorem ipsum solo" permissions={permissions} classNameProp={className} />
+              groupB.map(({ name, permissions, className, description }: member) => (
+                <Member key={name} name={name} description={description} permissions={permissions} classNameProp={className} />
               ))
             )}
           </GroupBody>

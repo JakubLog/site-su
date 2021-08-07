@@ -18,7 +18,13 @@ const MembersProvider = ({ children }: props): JSX.Element => {
     const temp: member[] = [];
     const docs = await db.collection('members').where('Group', '==', groupName).get();
     docs.forEach((doc) =>
-      temp.push({ name: doc.get('Name'), permissions: doc.get('Permissions'), className: doc.get('Class'), group: doc.get('Group') })
+      temp.push({
+        name: doc.get('Name'),
+        permissions: doc.get('Permissions'),
+        description: doc.get('Description'),
+        className: doc.get('Class'),
+        group: doc.get('Group')
+      })
     );
     return temp;
   };
