@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Title, MembersWrapper, MembersGroup, GroupTitle, GroupBody } from './Members.styles';
+import { MembersWrapper, MembersGroup, GroupTitle, GroupBody } from './Members.styles';
 import Member from 'components/molecules/Member/Member';
 import Loading from 'components/molecules/Loading/Loading';
 import { useMembers } from 'hooks/useMembers';
 import { gsap, Back } from 'gsap';
 import { useRef } from 'react';
+import { PageTitle } from 'components/atoms/PageTitle/PageTitle';
 
 export interface member {
   name: string;
@@ -43,7 +44,7 @@ const Members = (): JSX.Element => {
 
   return (
     <>
-      <Title ref={title}>Członkowie naszego zespołu</Title>
+      <PageTitle ref={title}>Członkowie naszego zespołu</PageTitle>
       <MembersWrapper>
         <MembersGroup>
           <GroupTitle>Klasy I-III</GroupTitle>
