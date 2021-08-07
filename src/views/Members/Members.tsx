@@ -3,6 +3,8 @@ import { Title, MembersWrapper, MembersGroup, GroupTitle, GroupBody } from './Me
 import Member from 'components/molecules/Member/Member';
 import Loading from 'components/molecules/Loading/Loading';
 import { useMembers } from 'hooks/useMembers';
+import { gsap, Back } from 'gsap';
+import { useRef } from 'react';
 
 export interface member {
   name: string;
@@ -28,12 +30,23 @@ const Members = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const title = useRef();
+
+  useEffect(() => {
+    gsap.set(title.current, { visibility: 'visible' });
+
+    if (window.innerWidth >= 1350) {
+      const tl = gsap.timeline({ delay: 0.5 });
+      tl.from(title.current, { duration: 0.6, opacity: 0, y: 50, ease: Back.easeOut.config(2) });
+    }
+  }, []);
+
   return (
     <>
-      <Title>Członkowie naszego zespołu</Title>
+      <Title ref={title}>Członkowie naszego zespołu</Title>
       <MembersWrapper>
         <MembersGroup>
-          <GroupTitle>Klasy I-II</GroupTitle>
+          <GroupTitle>Klasy I-III</GroupTitle>
           <GroupBody>
             {isLoading ? (
               <Loading />
@@ -45,7 +58,7 @@ const Members = (): JSX.Element => {
           </GroupBody>
         </MembersGroup>
         <MembersGroup>
-          <GroupTitle>Klasy III-VIII</GroupTitle>
+          <GroupTitle>Klasy IV-VIII</GroupTitle>
           <GroupBody>
             {isLoading ? (
               <Loading />

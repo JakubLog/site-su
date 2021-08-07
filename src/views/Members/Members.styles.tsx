@@ -45,6 +45,7 @@ export const GroupBody = styled.div`
 `;
 
 export const Title = styled.h1`
+  visibility: hidden;
   font-size: 30px;
   width: 100vw;
   background-color: ${({ theme }) => theme.color.secondaryDarken};
