@@ -6,6 +6,8 @@ import { Form } from './Signin.styles';
 import { Button } from 'components/atoms/Button/Button';
 import { ErrorParagraph } from 'components/atoms/ErrorParagraph/ErrorParagraph';
 import { Input } from 'components/atoms/Input/Input';
+import { useAuth } from 'hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 
 // TypeScript Interfaces
 interface loginProps {
@@ -16,6 +18,7 @@ interface loginProps {
 const Sigin = (): JSX.Element => {
   // Global States
   const [firebaseError, setFirebaseError] = useState(null);
+  const history = useHistory();
 
   // GSAP Title Animation
   const title = useRef(null);
@@ -28,6 +31,9 @@ const Sigin = (): JSX.Element => {
     }
   }, []);
 
+  // Auth hook
+  const { signIn } = useAuth();
+
   // React Form Service
   const {
     register,
@@ -38,7 +44,8 @@ const Sigin = (): JSX.Element => {
   const process = async ({ email, password }: loginProps) => {
     setFirebaseError(null);
     try {
-      console.log(email, password);
+      await signIn(email, password);
+      history.push('/');
     } catch (e) {
       setFirebaseError('Podano złe dane logowania!');
     }

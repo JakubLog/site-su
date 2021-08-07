@@ -7,9 +7,11 @@ import Main from './Main/Main';
 import Members from './Members/Members';
 import Modal from 'components/molecules/Modal/Modal';
 import Sigin from './Signin/Signin';
+import { useAuth } from 'hooks/useAuth';
 
 export default function App(): JSX.Element {
   const { error } = useError();
+  const { currentUser } = useAuth();
   return (
     <>
       <MainTemplate>
@@ -20,9 +22,13 @@ export default function App(): JSX.Element {
           <Route path="/members">
             <Members />
           </Route>
-          <Route path="/signin">
-            <Sigin />
-          </Route>
+          {!currentUser ? (
+            <Route path="/signin">
+              <Sigin />
+            </Route>
+          ) : (
+            <Route path="/panel">{/* <Panel /> */}</Route>
+          )}
         </Switch>
       </MainTemplate>
       <Modal />

@@ -5,15 +5,20 @@ import { Navbar, NavBody, NavLogo, NavItems, NavItem, NavTheme, ThemeInput, Them
 import { toggleTheme } from 'store/store';
 import { gsap } from 'gsap';
 import { createRef } from 'react';
+import { useAuth } from 'hooks/useAuth';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Navigation = () => {
+  // Global States
+  const { currentUser, signOut } = useAuth();
   const dispatch = useDispatch();
 
+  // React refs
   const logo = useRef(null);
   const navItems = useRef([createRef(), createRef(), createRef()]);
   const switchInput = useRef(null);
 
+  // GSAP Animations
   useEffect(() => {
     const items = navItems.current.map((item) => item.current);
 
@@ -44,7 +49,13 @@ const Navigation = () => {
             <NavItem to="/members">Members</NavItem>
           </div>
           <div style={{ visibility: 'hidden' }} ref={navItems.current[2]}>
-            <NavItem to="/signin">Sign in</NavItem>
+            {currentUser ? (
+              <NavItem onClick={signOut} to="/signin">
+                Sign Out
+              </NavItem>
+            ) : (
+              <NavItem to="/signin">Sign in</NavItem>
+            )}
           </div>
         </NavItems>
         <NavTheme ref={switchInput}>
