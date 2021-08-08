@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useError } from './useError';
 import { auth } from '../firebase';
+import { useHistory } from 'react-router-dom';
 
 interface props {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ interface props {
 interface ContextProps {
   currentUser: unknown;
   signIn: (login: string, password: string) => Promise<unknown>;
-  signOut: () => Promise<void>;
+  signOut: () => void;
   resetPassword: (email: string) => Promise<void>;
 }
 
@@ -18,9 +19,13 @@ const AuthContext = React.createContext<Partial<ContextProps>>({});
 const AuthProvider = ({ children }: props): JSX.Element => {
   const [isLoading, setLoadingState] = useState<boolean>(true);
   const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory();
 
   const signIn = (login: string, password: string) => auth.signInWithEmailAndPassword(login, password);
-  const signOut = () => auth.signOut();
+  const signOut = () => {
+    auth.signOut();
+    history.push('/');
+  };
   const resetPassword = (email: string) => auth.sendPasswordResetEmail(email);
 
   useEffect(() => {
