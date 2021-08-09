@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react';
 
-const ErrorContext = React.createContext({});
-
+// TypeScript interfaces & definitions
 interface props {
   children: React.ReactNode;
 }
 
+const ErrorContext = React.createContext({});
+
 const ErrorProvider = ({ children }: props): JSX.Element => {
+  // Global states and variables
   const [error, setError] = useState(null);
 
+  // Error methods
   const dispatchError = (error: string) => {
     setError(error);
     setTimeout(() => {

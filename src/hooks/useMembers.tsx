@@ -3,6 +3,7 @@ import { useError } from './useError';
 import { db } from '../firebase';
 import { member } from 'views/Members/Members';
 
+// TypeScript interfaces & definitions
 interface props {
   children: React.ReactNode;
 }
@@ -13,7 +14,9 @@ type ContextProps = {
 };
 
 const MembersContext = createContext<Partial<ContextProps>>({});
+
 const MembersProvider = ({ children }: props): JSX.Element => {
+  // Method below gets all members of defined in argument group
   const getGroup = async (groupName: string) => {
     const temp: member[] = [];
     const docs = await db.collection('members').where('Group', '==', groupName).get();
@@ -32,6 +35,7 @@ const MembersProvider = ({ children }: props): JSX.Element => {
   const value = {
     getGroup
   };
+
   return <MembersContext.Provider value={value}>{children}</MembersContext.Provider>;
 };
 

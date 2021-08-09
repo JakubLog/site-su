@@ -3,6 +3,7 @@ import { useError } from './useError';
 import { auth } from '../firebase';
 import { useHistory } from 'react-router-dom';
 
+// TypeScript interfaces & definitions
 interface props {
   children: React.ReactNode;
 }
@@ -18,10 +19,12 @@ interface ContextProps {
 const AuthContext = React.createContext<Partial<ContextProps>>({});
 
 const AuthProvider = ({ children }: props): JSX.Element => {
+  // Global states and variables
   const [isLoading, setLoadingState] = useState<boolean>(true);
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
+  // Auth methods
   const signIn = (login: string, password: string) => auth.signInWithEmailAndPassword(login, password);
   const signOut = () => {
     auth.signOut();
@@ -29,6 +32,7 @@ const AuthProvider = ({ children }: props): JSX.Element => {
   };
   const resetPassword = (email: string) => auth.sendPasswordResetEmail(email);
 
+  // User auth control event
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);

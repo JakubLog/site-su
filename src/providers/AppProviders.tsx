@@ -10,6 +10,8 @@ import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import MembersProvider from 'hooks/useMembers';
 import ModalProvider from 'hooks/useModal';
 import AuthProvider from 'hooks/useAuth';
+
+// TypeScript interfaces & definitions
 interface props {
   children: React.ReactNode;
 }
@@ -19,6 +21,8 @@ const client = new GraphQLClient({
 });
 
 const AppProviders = ({ children }: props): JSX.Element => {
+  // Two lines below are getting from redux actual Theme State
+  // and using this information for theme toggling.
   const themeName = useSelector<RootState>((state) => state.theme);
   const getTheme = () => (themeName === 'light' ? light : dark);
 

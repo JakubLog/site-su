@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 import { useError } from './useError';
 
+// TypeScript interfaces & definitions
 interface props {
   children: React.ReactNode;
 }
@@ -14,11 +15,14 @@ interface ContextProps {
 }
 
 const ModalContext = createContext<Partial<ContextProps>>({});
+
 const ModalProvider = ({ children }: props): JSX.Element => {
+  // Global states & variables
   const [isOpen, setOpenState] = useState<boolean>(false);
   const [modalBody, setModalBody] = useState<React.ReactNode | null>(<p>Hello world</p>);
   const [modalTitle, setModalTitle] = useState<string | null>('Hello world!');
 
+  // Modal control methods
   const openModal = (elements: React.ReactNode, title: string): void => {
     setModalTitle(title);
     setModalBody(elements);
