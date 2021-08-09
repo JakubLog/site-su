@@ -31,6 +31,7 @@ const Post = (): JSX.Element => {
     } else if (error) {
       dispatchError('Something went wrong with this post. Please, contact with support!');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   return (

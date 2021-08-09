@@ -137,3 +137,10 @@ export const ThemeInput = styled.input`
     transform: translateX(195%);
   }
 `;
+export const ItemWrapper = styled.div`
+  visibility: hidden;
+`;
+export const LogoLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.primary};
+`;

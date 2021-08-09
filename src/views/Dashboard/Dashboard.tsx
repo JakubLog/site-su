@@ -29,6 +29,7 @@ const Dashboard = (): JSX.Element => {
       );
     setLoadingState(false);
     console.log(user);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

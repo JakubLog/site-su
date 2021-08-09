@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { Navbar, NavBody, NavLogo, NavItems, NavItem, NavTheme, ThemeInput, ThemeSlider } from './Navigation.styles';
+import { Navbar, NavBody, NavLogo, NavItems, LogoLink, ItemWrapper, NavItem, NavTheme, ThemeInput, ThemeSlider } from './Navigation.styles';
 import { toggleTheme } from 'store/store';
 import { gsap } from 'gsap';
 import { createRef } from 'react';
@@ -38,19 +38,21 @@ const Navigation = () => {
   return (
     <Navbar>
       <NavBody>
-        <NavLogo ref={logo}>Samorząd Uczniowski</NavLogo>
+        <LogoLink to="/">
+          <NavLogo ref={logo}>Samorząd Uczniowski</NavLogo>
+        </LogoLink>
         <NavItems>
-          <div style={{ visibility: 'hidden' }} ref={navItems.current[0]}>
+          <ItemWrapper ref={navItems.current[0]}>
             <NavItem exact to="/">
               Home
             </NavItem>
-          </div>
-          <div style={{ visibility: 'hidden' }} ref={navItems.current[1]}>
+          </ItemWrapper>
+          <ItemWrapper ref={navItems.current[1]}>
             <NavItem to="/members">Members</NavItem>
-          </div>
-          <div style={{ visibility: 'hidden' }} ref={navItems.current[2]}>
+          </ItemWrapper>
+          <ItemWrapper ref={navItems.current[2]}>
             {currentUser ? <NavItem to="/dashboard">Dashboard</NavItem> : <NavItem to="/signin">Sign in</NavItem>}
-          </div>
+          </ItemWrapper>
         </NavItems>
         <NavTheme ref={switchInput}>
           <ThemeInput onClick={() => dispatch(toggleTheme({}))} type="checkbox" />
