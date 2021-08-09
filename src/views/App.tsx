@@ -6,9 +6,10 @@ import Error from 'components/molecules/Error/Error';
 import Main from './Main/Main';
 import Members from './Members/Members';
 import Modal from 'components/molecules/Modal/Modal';
-import Sigin from './Signin/Signin';
+import Signin from './Signin/Signin';
 import { useAuth } from 'hooks/useAuth';
 import Post from './Post/Post';
+import Dashboard from './Dashboard/Dashboard';
 
 export default function App(): JSX.Element {
   const { error } = useError();
@@ -28,10 +29,12 @@ export default function App(): JSX.Element {
           </Route>
           {!currentUser ? (
             <Route path="/signin">
-              <Sigin />
+              <Signin />
             </Route>
           ) : (
-            <Route path="/panel">{/* <Panel /> */}</Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
           )}
         </Switch>
       </MainTemplate>

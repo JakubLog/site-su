@@ -45,7 +45,7 @@ const Sigin = (): JSX.Element => {
     setFirebaseError(null);
     try {
       await signIn(email, password);
-      history.push('/');
+      history.push('/dashboard');
     } catch (e) {
       setFirebaseError('Podano złe dane logowania!');
     }

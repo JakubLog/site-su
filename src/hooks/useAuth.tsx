@@ -8,7 +8,8 @@ interface props {
 }
 
 interface ContextProps {
-  currentUser: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  currentUser: any;
   signIn: (login: string, password: string) => Promise<unknown>;
   signOut: () => void;
   resetPassword: (email: string) => Promise<void>;
