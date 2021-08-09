@@ -34,6 +34,7 @@ export const Content = styled.p`
   text-align: justify;
   line-height: 1.3;
   margin-block: 30px;
+  margin-bottom: 60px;
   @media (min-width: 1350px) {
     line-height: 1.5;
     font-size: 25px;
@@ -41,7 +42,7 @@ export const Content = styled.p`
     padding-inline: 60px;
   }
 `;
-export const Author = styled.h2`
+export const Footer = styled.div`
   font-size: 16px;
   text-align: center;
   padding-top: 10px;
@@ -49,7 +50,24 @@ export const Author = styled.h2`
   font-weight: 400;
   letter-spacing: 1px;
   border-top: 3px solid ${({ theme }) => theme.color.primary};
+  position: relative;
+  & > *:first-child {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   @media (min-width: 1350px) {
+    & > *:first-child {
+      position: static;
+      top: auto;
+      left: auto;
+      transform: unset;
+    }
+    display: flex;
+    align-items: center;
+    padding-inline: 25px;
+    justify-content: space-between;
     text-align: right;
   }
 `;

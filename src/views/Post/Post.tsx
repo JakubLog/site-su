@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Wrapper, Title, Content, Author, Image, ImageWrapper } from './Post.styles';
+import { Wrapper, Title, Content, Footer, Image, ImageWrapper } from './Post.styles';
 import { useQuery } from 'graphql-hooks';
 import Loading from 'components/molecules/Loading/Loading';
 import { useError } from 'hooks/useError';
+import Share from 'components/molecules/Share/Share';
 
 const Post = (): JSX.Element => {
   // Global States and Variables
@@ -43,7 +44,10 @@ const Post = (): JSX.Element => {
           </ImageWrapper>
           <Title>{post.title}</Title>
           <Content>{post.description}</Content>
-          <Author>{`Samorząd Uczniowski - ${post.createdBy.name}`}</Author>
+          <Footer>
+            <Share id={postId} />
+            <span>{`Samorząd Uczniowski - ${post.createdBy.name}`}</span>
+          </Footer>
         </>
       )}
     </Wrapper>
