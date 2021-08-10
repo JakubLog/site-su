@@ -2,12 +2,28 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 // Redux Reducers
+
+// Theme Redux State
+
+// Function below searches the storage
+// and gets theme if exist. Else returns
+// light theme like a default state.
+const getFromStorage = () => {
+  const storageTheme = localStorage.getItem('theme');
+
+  if (storageTheme === 'light') return 'light';
+  else if (storageTheme === 'dark') return 'dark';
+  else return 'light';
+};
+
 const themeSlice = createSlice({
   name: 'theme',
-  initialState: 'light',
+  initialState: getFromStorage(),
   reducers: {
     toggleTheme(state, action) {
-      return state === 'light' ? 'dark' : 'light';
+      const newTheme = state === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      return newTheme;
     }
   }
 });
