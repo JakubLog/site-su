@@ -68,11 +68,18 @@ const Sigin = (): JSX.Element => {
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           })}
         />
-        <Input id="password" aria-label="password" type="password" label="Hasło" {...register('password', { required: true, minLength: 6 })} />
+        <Input
+          id="password"
+          placeholder="Type your password..."
+          aria-label="password"
+          type="password"
+          label="Hasło"
+          {...register('password', { required: true, minLength: 6 })}
+        />
         {formErrors.email && <ErrorParagraph>Podaj prawidłowy email!</ErrorParagraph>}
         {formErrors.password && <ErrorParagraph>Hasło powinno zawierać conajmniej 6 znaków!</ErrorParagraph>}
         {firebaseError && <ErrorParagraph>{firebaseError}</ErrorParagraph>}
-        <Button type="submit" style={{ width: '100%', maxWidth: '400px' }}>
+        <Button aria-label="signin btn" type="submit" style={{ width: '100%', maxWidth: '400px' }}>
           Zaloguj się
         </Button>
       </Form>
