@@ -13,8 +13,10 @@ PageInsights scores:
 
 ### How can I try it? 🤔
 
-Try now on: https://jakublog.github.io/site-su/
-Test Login Details: **private**
+It's not my private project so I can't share pass to account or
+create private server with code.
+
+Check official site: **doesn't have domain yet**
 
 ## About UX/UI 🖌️
 
