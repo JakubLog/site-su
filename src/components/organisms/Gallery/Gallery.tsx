@@ -3,6 +3,7 @@ import { GalleryWrapper } from './Gallery.styles';
 import GalleryItem from 'components/molecules/GalleryItem/GalleryItem';
 
 interface GalleryItemInterface {
+  className: string;
   id: string;
   title: string;
   description: string;

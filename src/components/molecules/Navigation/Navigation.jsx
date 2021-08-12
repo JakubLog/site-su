@@ -55,7 +55,7 @@ const Navigation = () => {
           </ItemWrapper>
         </NavItems>
         <NavTheme ref={switchInput}>
-          <ThemeInput onClick={() => dispatch(toggleTheme({}))} type="checkbox" />
+          <ThemeInput aria-label="theme changer" onClick={() => dispatch(toggleTheme({}))} type="checkbox" />
           <ThemeSlider />
         </NavTheme>
       </NavBody>

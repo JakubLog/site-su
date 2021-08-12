@@ -57,6 +57,7 @@ const Sigin = (): JSX.Element => {
       <Form onSubmit={handleSubmit(process)}>
         <Input
           id="email"
+          aria-label="email"
           type="text"
           label="Email"
           placeholder="example@gmail.com"
@@ -67,7 +68,7 @@ const Sigin = (): JSX.Element => {
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           })}
         />
-        <Input id="email" type="password" label="Hasło" {...register('password', { required: true, minLength: 6 })} />
+        <Input id="password" aria-label="password" type="password" label="Hasło" {...register('password', { required: true, minLength: 6 })} />
         {formErrors.email && <ErrorParagraph>Podaj prawidłowy email!</ErrorParagraph>}
         {formErrors.password && <ErrorParagraph>Hasło powinno zawierać conajmniej 6 znaków!</ErrorParagraph>}
         {firebaseError && <ErrorParagraph>{firebaseError}</ErrorParagraph>}

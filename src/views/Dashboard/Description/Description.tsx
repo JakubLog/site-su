@@ -24,7 +24,7 @@ const Description = ({ about, docId }: props): JSX.Element => {
   return (
     <Form onSubmit={handleSubmit(process)}>
       <StyledTitle>Powiedz nam coś o sobie</StyledTitle>
-      <StyledTextarea placeholder={about} id="about" {...register('about', { required: true })} />
+      <StyledTextarea aria-label="description" placeholder={about} id="about" {...register('about', { required: true })} />
       {errors.about && <StyledErrorParagraph>Uzupełnij pole!</StyledErrorParagraph>}
       <Button type="submit">Zapisz zmiany</Button>
     </Form>

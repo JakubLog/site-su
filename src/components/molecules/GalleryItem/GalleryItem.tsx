@@ -10,7 +10,7 @@ interface props {
 
 const GalleryItem = ({ title, description, src, path }: props): JSX.Element => {
   return (
-    <GalleryItemWrapper to={path} data-title={title}>
+    <GalleryItemWrapper aria-label="post" to={path} data-title={title}>
       <Background src={src} alt={title} />
       <InfoBar>
         <Title>{title}</Title>

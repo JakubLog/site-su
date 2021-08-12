@@ -1,5 +1,5 @@
-import { GlobalStyles } from 'assets/css/GlobalStyles';
 import React from 'react';
+import { GlobalStyles } from 'assets/css/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useSelector } from 'react-redux';
