@@ -6,7 +6,9 @@ interface props {
   message: string;
 }
 
-const Error = ({ message }: props): JSX.Element => {
+const defaultMessage = 'Sorry, something went wrong. Please, contact with our support team.';
+
+const Error = ({ message = defaultMessage }: props): JSX.Element => {
   return (
     <ErrorWrapper>
       <ErrorTitle>Ooops!</ErrorTitle>
