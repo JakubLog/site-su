@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Wrapper, Title, Body } from './Section.styles';
 
 interface props {
@@ -14,6 +15,11 @@ const Section = ({ title = 'Section title', label, children }: props): JSX.Eleme
       <Body>{children}</Body>
     </Wrapper>
   );
+};
+
+Section.propTypes = {
+  title: PropTypes.string,
+  label: PropTypes.string.isRequired
 };
 
 export default Section;

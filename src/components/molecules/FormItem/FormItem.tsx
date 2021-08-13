@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormItemWrapper, Link, Title } from './FormItem.styles';
 
 interface props {
@@ -14,6 +15,11 @@ const FormItem = ({ title, src }: props): JSX.Element => {
       </Link>
     </FormItemWrapper>
   );
+};
+
+FormItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired
 };
 
 export default FormItem;

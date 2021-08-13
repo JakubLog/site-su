@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ProfileWrapper, Image, Name } from './Profile.styles';
 
 interface props {
@@ -12,6 +13,10 @@ const Profile = ({ name, ...rest }: props): JSX.Element => {
       <Name>{name}</Name>
     </ProfileWrapper>
   );
+};
+
+Profile.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export default Profile;

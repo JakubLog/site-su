@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ErrorWrapper, ErrorTitle, ErrorMessage } from './Error.styles';
 
 interface props {
@@ -12,6 +13,10 @@ const Error = ({ message }: props): JSX.Element => {
       <ErrorMessage>{message}</ErrorMessage>
     </ErrorWrapper>
   );
+};
+
+Error.propTypes = {
+  message: PropTypes.string
 };
 
 export default Error;

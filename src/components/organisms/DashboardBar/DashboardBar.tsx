@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Bar } from './DashboardBar.styles';
 import SettingsNav from 'components/molecules/SettingsNav/SettingsNav';
 import Profile from 'components/molecules/Profile/Profile';
@@ -14,6 +15,10 @@ const DashboardBar = ({ name }: props): JSX.Element => {
       <SettingsNav />
     </Bar>
   );
+};
+
+DashboardBar.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export default DashboardBar;

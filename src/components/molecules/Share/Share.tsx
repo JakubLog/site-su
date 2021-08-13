@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton } from 'react-share';
 import { ShareIcons } from './Share.styles';
 
@@ -21,6 +22,10 @@ const Share = ({ id }: props): JSX.Element => {
       </EmailShareButton>
     </ShareIcons>
   );
+};
+
+Share.propTypes = {
+  id: PropTypes.string.isRequired
 };
 
 export default Share;

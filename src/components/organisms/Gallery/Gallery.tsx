@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { GalleryWrapper } from './Gallery.styles';
 import GalleryItem from 'components/molecules/GalleryItem/GalleryItem';
 
@@ -22,6 +23,13 @@ const Gallery = ({ array }: props): JSX.Element => {
       ))}
     </GalleryWrapper>
   );
+};
+
+Gallery.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  src: PropTypes.shape({ url: PropTypes.string }).isRequired
 };
 
 export default Gallery;

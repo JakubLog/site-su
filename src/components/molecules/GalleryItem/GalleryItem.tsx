@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { GalleryItemWrapper, Background, Title, Description, InfoBar } from './GalleryItem.styles';
 
 interface props {
@@ -18,6 +19,13 @@ const GalleryItem = ({ title, description, src, path }: props): JSX.Element => {
       </InfoBar>
     </GalleryItemWrapper>
   );
+};
+
+GalleryItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired
 };
 
 export default GalleryItem;

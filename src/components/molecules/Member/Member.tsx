@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MemberWrapper, Image, PersonImage, Info, Name, Permissions } from './Member.styles';
 import { useModal } from 'hooks/useModal';
 import { Bold } from 'components/atoms/Bold/Bold';
@@ -37,6 +38,13 @@ const Member = ({ name, classNameProp, description, permissions }: props): JSX.E
       </Info>
     </MemberWrapper>
   );
+};
+
+Member.propTypes = {
+  name: PropTypes.string.isRequired,
+  classNameProp: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  permissions: PropTypes.string.isRequired
 };
 
 export default Member;
