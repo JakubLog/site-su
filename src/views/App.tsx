@@ -10,6 +10,7 @@ import Signin from './Signin/Signin';
 import { useAuth } from 'hooks/useAuth';
 import Post from './Post/Post';
 import Dashboard from './Dashboard/Dashboard';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 export default function App(): JSX.Element {
   const { error } = useError();
@@ -36,6 +37,9 @@ export default function App(): JSX.Element {
               <Dashboard />
             </Route>
           )}
+          <Route path="*">
+            <ErrorPage />
+          </Route>
         </Switch>
       </MainTemplate>
       <Modal />
