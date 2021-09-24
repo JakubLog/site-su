@@ -34,6 +34,8 @@ All of styles and views are designed by Author. <br/>
 Colors were selected by Author too. <br/>
 Single components are from Material UI.
 
+Figma project: [click here](https://www.figma.com/file/SOiLvPTn88QFS9xxMfiOGJ/Strona-SU) <br>
+
 ## Instalation steps 🛠️
 
 1. Copy this repository
