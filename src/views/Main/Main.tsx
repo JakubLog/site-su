@@ -7,6 +7,7 @@ import { useQuery } from 'graphql-hooks';
 import { useError } from 'hooks/useError';
 import Loading from 'components/molecules/Loading/Loading';
 import About from 'components/molecules/About/About';
+import CovidBlock from 'components/molecules/CovidBlock/CovidBlock';
 
 const POSTS_QUERY = `{
   posts {
@@ -68,6 +69,9 @@ const Main = (): JSX.Element => {
       </Section>
       <Section label="about" title="O nas">
         <About />
+      </Section>
+      <Section label="covid" title="Raport Covid'owy">
+        <CovidBlock />
       </Section>
     </>
   );
