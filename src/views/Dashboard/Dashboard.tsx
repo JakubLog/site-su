@@ -14,7 +14,7 @@ interface userProps {
   description: string;
 }
 
-const Dashboard = (): JSX.Element => {
+const Dashboard: React.FC = () => {
   const { currentUser: authUser } = useAuth();
   const [isLoading, setLoadingState] = useState(true);
   const [user, setUser] = useState<userProps | null>(null);

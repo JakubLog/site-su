@@ -15,7 +15,7 @@ interface loginProps {
   password: string;
 }
 
-const Sigin = (): JSX.Element => {
+const Sigin: React.FC = () => {
   // Global States
   const [firebaseError, setFirebaseError] = useState(null);
   const history = useHistory();

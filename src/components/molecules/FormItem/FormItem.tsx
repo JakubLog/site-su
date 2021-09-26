@@ -7,7 +7,7 @@ interface props {
   src: string;
 }
 
-const FormItem = ({ title, src }: props): JSX.Element => {
+const FormItem: React.FC<props> = ({ title, src }) => {
   return (
     <FormItemWrapper>
       <Link href={src}>

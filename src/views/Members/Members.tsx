@@ -15,7 +15,7 @@ export interface member {
   group: string;
 }
 
-const Members = (): JSX.Element => {
+const Members: React.FC = () => {
   const [groupA, setGroupA] = useState([]);
   const [groupB, setGroupB] = useState([]);
   const [isLoading, setLoadingState] = useState(true);

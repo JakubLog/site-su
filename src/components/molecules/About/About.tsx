@@ -1,7 +1,7 @@
 import React from 'react';
 import { Content } from './About.styles';
 
-const About = (): JSX.Element => {
+const About: React.FC = () => {
   return (
     <Content>
       Samorząd Uczniowski w naszej szkole funkcjonuje odkąd pamiętamy, tak też musi zostać. Jesteśmy osobami które reprezentują młode pokolenie w

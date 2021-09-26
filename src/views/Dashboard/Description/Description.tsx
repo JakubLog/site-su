@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Button } from 'components/atoms/Button/Button';
 import { db } from '../../../firebase';
@@ -9,7 +10,7 @@ interface props {
   docId: string;
 }
 
-const Description = ({ about, docId }: props): JSX.Element => {
+const Description: React.FC<props> = ({ about, docId }) => {
   const {
     register,
     handleSubmit,

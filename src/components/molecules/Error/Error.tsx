@@ -8,7 +8,7 @@ interface props {
 
 const defaultMessage = 'Sorry, something went wrong. Please, contact with our support team.';
 
-const Error = ({ message = defaultMessage }: props): JSX.Element => {
+const Error: React.FC<props> = ({ message = defaultMessage }) => {
   return (
     <ErrorWrapper>
       <ErrorTitle>Ooops!</ErrorTitle>

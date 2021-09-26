@@ -3,7 +3,7 @@ import { HeroWrapper, HeroTitle, HeroSubtitle } from './Hero.styles';
 import { Button } from 'components/atoms/Button/Button';
 import { gsap } from 'gsap';
 
-const Hero = (): JSX.Element => {
+const Hero: React.FC = () => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
   const buttonRef = useRef(null);

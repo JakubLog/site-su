@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FormsWrapper } from './Forms.styles';
 import FormItem from 'components/molecules/FormItem/FormItem';
 
@@ -13,7 +13,7 @@ interface props {
   array: Form[];
 }
 
-const Forms = ({ array }: props): JSX.Element => {
+const Forms: React.FC<props> = ({ array }) => {
   return (
     <FormsWrapper>
       {array.length <= 0 ? (
@@ -23,12 +23,6 @@ const Forms = ({ array }: props): JSX.Element => {
       )}
     </FormsWrapper>
   );
-};
-
-Forms.propTypes = {
-  array: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string.isRequired, title: PropTypes.string.isRequired, link: PropTypes.string.isRequired })
-  )
 };
 
 export default Forms;

@@ -5,10 +5,10 @@ import { Wrapper, Title, Body } from './Section.styles';
 interface props {
   title?: string;
   label?: string;
-  children: React.ReactNode;
 }
 
-const Section = ({ title = 'Section title', label, children }: props): JSX.Element => {
+// eslint-disable-next-line react/prop-types
+const Section: React.FC<props> = ({ title = 'Section title', label, children }) => {
   return (
     <Wrapper aria-label={`Section named ${label}`} id={label}>
       <Title>{title}</Title>

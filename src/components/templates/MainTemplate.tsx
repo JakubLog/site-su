@@ -3,11 +3,8 @@ import { Wrapper, Site } from './MainTemplate.styles';
 import Navigation from 'components/molecules/Navigation/Navigation';
 import Footer from 'components/molecules/Footer/Footer';
 
-interface props {
-  children: React.ReactNode;
-}
-
-const MainTemplate = ({ children }: props): JSX.Element => {
+// eslint-disable-next-line react/prop-types
+const MainTemplate: React.FC = ({ children }) => {
   return (
     <Wrapper>
       <Navigation />

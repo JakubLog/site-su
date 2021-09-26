@@ -7,7 +7,7 @@ interface props {
   id: string;
 }
 
-const Share = ({ id }: props): JSX.Element => {
+const Share: React.FC<props> = ({ id }) => {
   const webLink = `https://google.pl/${id}`;
   return (
     <ShareIcons>

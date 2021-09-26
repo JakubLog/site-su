@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { GalleryWrapper } from './Gallery.styles';
 import GalleryItem from 'components/molecules/GalleryItem/GalleryItem';
 
@@ -15,7 +15,7 @@ interface props {
   array: GalleryItemInterface[];
 }
 
-const Gallery = ({ array }: props): JSX.Element => {
+const Gallery: React.FC<props> = ({ array }) => {
   return (
     <GalleryWrapper>
       {array.map(({ id, title, description, src: { url } }) => (
@@ -23,13 +23,6 @@ const Gallery = ({ array }: props): JSX.Element => {
       ))}
     </GalleryWrapper>
   );
-};
-
-Gallery.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  src: PropTypes.shape({ url: PropTypes.string }).isRequired
 };
 
 export default Gallery;

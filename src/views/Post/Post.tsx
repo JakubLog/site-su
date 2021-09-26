@@ -6,7 +6,7 @@ import Loading from 'components/molecules/Loading/Loading';
 import { useError } from 'hooks/useError';
 import Share from 'components/molecules/Share/Share';
 
-const Post = (): JSX.Element => {
+const Post: React.FC = () => {
   // Global States and Variables
   const { id: postId } = useParams<Partial<{ id: string }>>();
   const [post, setPost] = useState<{ title: string; description: string; createdBy: { name: string }; src: { url: string } }>({

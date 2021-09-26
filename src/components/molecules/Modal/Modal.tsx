@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Wrapper, Title, Body, Background, CloseButton } from './Modal.styles';
 import { useModal } from 'hooks/useModal';
 
-const Modal = (): JSX.Element => {
+const Modal: React.FC = () => {
   const { isOpen, closeModal, modalBody, modalTitle } = useModal();
   return ReactDOM.createPortal(
     <>

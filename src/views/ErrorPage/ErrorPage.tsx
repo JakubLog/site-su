@@ -2,7 +2,7 @@ import React from 'react';
 import { Bold } from 'components/atoms/Bold/Bold';
 import { Wrapper, Block, Title, Content } from './ErrorPage.styles';
 
-const ErrorPage = (): JSX.Element => {
+const ErrorPage: React.FC = () => {
   return (
     <Wrapper>
       <Block>

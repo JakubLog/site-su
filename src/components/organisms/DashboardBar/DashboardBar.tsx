@@ -8,7 +8,7 @@ interface props {
   name: string;
 }
 
-const DashboardBar = ({ name }: props): JSX.Element => {
+const DashboardBar: React.FC<props> = ({ name }) => {
   return (
     <Bar>
       <Profile name={name} />

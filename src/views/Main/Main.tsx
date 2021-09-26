@@ -27,7 +27,7 @@ const FORMS_QUERY = `{
   }
 }`;
 
-const Main = (): JSX.Element => {
+const Main: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [forms, setForms] = useState([]);
   const { loading: postsLoading, error: postsError, data: postsData } = useQuery(POSTS_QUERY);

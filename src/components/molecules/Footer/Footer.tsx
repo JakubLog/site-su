@@ -3,7 +3,7 @@ import { FooterWrapper, Socials, Social } from './Footer.styles';
 import { RiFacebookCircleLine as FbIcon } from 'react-icons/ri';
 import { FaMousePointer as MouseIcon } from 'react-icons/fa';
 
-const Footer = (): JSX.Element => {
+const Footer: React.FC = () => {
   return (
     <FooterWrapper>
       <span id="first">Szkoła Podstawowa Nr. 3 w Środzie Śląskiej</span>

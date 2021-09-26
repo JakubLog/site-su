@@ -9,7 +9,7 @@ interface props {
   path: string;
 }
 
-const GalleryItem = ({ title, description, src, path }: props): JSX.Element => {
+const GalleryItem: React.FC<props> = ({ title, description, src, path }) => {
   return (
     <GalleryItemWrapper aria-label="post" to={path} data-title={title}>
       <Background src={src} alt={title} />

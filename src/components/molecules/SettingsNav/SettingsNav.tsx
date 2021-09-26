@@ -2,7 +2,7 @@ import React from 'react';
 import { Settings, Setting, Link } from './SettingsNav.styles';
 import { useAuth } from 'hooks/useAuth';
 
-const SettingsNav = (): JSX.Element => {
+const SettingsNav: React.FC = () => {
   const { signOut } = useAuth();
   return (
     <Settings>

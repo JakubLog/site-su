@@ -11,7 +11,7 @@ interface props {
   permissions: string;
 }
 
-const Member = ({ name, classNameProp, description, permissions }: props): JSX.Element => {
+const Member: React.FC<props> = ({ name, classNameProp, description, permissions }) => {
   const { openModal } = useModal();
   return (
     <MemberWrapper
