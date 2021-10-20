@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { MembersWrapper, MembersGroup, GroupTitle, GroupBody } from './Members.styles';
 import Member from 'components/molecules/Member/Member';
@@ -15,6 +16,26 @@ export interface member {
   group: string;
 }
 
+const setCookie = (name: string, value: any, days: number) => {
+  let expires = '';
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = '; expires=' + date.toUTCString();
+  }
+  document.cookie = name + '=' + (value || '') + expires + '; path=/';
+};
+const getCookie = (name: string): any => {
+  const nameEQ = name + '=';
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+};
+
 const Members: React.FC = () => {
   const [groupA, setGroupA] = useState([]);
   const [groupB, setGroupB] = useState([]);
@@ -24,8 +45,17 @@ const Members: React.FC = () => {
   useEffect(() => {
     (async () => {
       setLoadingState(true);
-      setGroupA(await getGroup('A'));
-      setGroupB(await getGroup('B'));
+      if (getCookie('members_A') !== null) {
+        setGroupA(JSON.parse(getCookie('members_A')));
+        setGroupB(JSON.parse(getCookie('members_B')));
+      } else {
+        const groupA = await getGroup('A');
+        const groupB = await getGroup('B');
+        setGroupA(groupA);
+        setGroupB(groupB);
+        setCookie('members_A', JSON.stringify(groupA), 30);
+        setCookie('members_B', JSON.stringify(groupB), 30);
+      }
       setLoadingState(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
