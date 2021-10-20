@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyles } from 'assets/css/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import { light, dark } from 'assets/css/theme';
